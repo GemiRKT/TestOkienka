@@ -24,32 +24,27 @@ namespace TestOkienka
             InitializeComponent();
         }
 
-        int counterCM = 1;
+        int count = 0;
         private void CheckPassword_Click(object sender, RoutedEventArgs e)
-        {
-
-            
-              while (true)
-            {
-                
-                if (TextBox.Text.Contains("tajemnica"))
+        {       
+            string passWrittenCM = TextBox.Text;         
+            PasswordChecker Contains = new PasswordChecker();           
+            while(true)
+                if (Contains.ContainsMethod(passWrittenCM))
                 {
-                    MessageBox.Show("Dobra robota");
+
                     break;
                 }
                 else
                 {
-                    MessageBox.Show("wpisz ponownie haslo");
-                    wynik.Text = counterCM.ToString();
-                    counterCM++;
 
-                   
+                    count++;
+                    TextBox2.Text = count.ToString(); 
                     break;
-
                 }
+                
             }
-
-        }
+ 
 
         private void MenuGlowne_Click(object sender, RoutedEventArgs e)
         {
@@ -63,7 +58,9 @@ namespace TestOkienka
 
         }
 
-        private void Wynik_TextChanged(object sender, TextChangedEventArgs e)
+
+        private void TextBox2_TextChanged(object sender, TextChangedEventArgs e)
+
         {
 
         }
